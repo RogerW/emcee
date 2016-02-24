@@ -11,7 +11,7 @@ module Sprockets
         if options["debug"] != false && request_debug_assets?
           sources.map { |source|
             #check_errors_for(source)
-            if asset = lookup_asset_for_path(source, type: :html)
+            if asset = lookup_context(source, type: :html)
               asset.to_a.map do |a|
                 super(path_to_html(a.logical_path, debug: true), options)
               end
